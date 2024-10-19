@@ -14,7 +14,7 @@ mongoose.connect(process.env.Mongo_URI)
 .then(()=>console.log("Database Connected Successfully!"))
 .catch((error)=>console.log(error))
 
-const port= 4000;
+const port= process.env.port || 4000;
 
 app.use(bodyparser.json());
 app.use('/vendor',vendorRoutes);
