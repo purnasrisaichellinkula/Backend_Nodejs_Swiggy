@@ -6,13 +6,18 @@ const bodyparser = require("body-parser")
 const firmRoutes = require('./routes/firmroutes')
 const productRoutes = require('./routes/productRoutes')
 const path = require("path");
+const cors  =require("cors")
 
 
 const app=express()
+
 dotenv.config();
+app.use(cors())
 mongoose.connect(process.env.Mongo_URI)
 .then(()=>console.log("Database Connected Successfully!"))
 .catch((error)=>console.log(error))
+
+
 
 const port= process.env.port || 4000;
 
